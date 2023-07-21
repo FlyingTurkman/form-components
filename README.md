@@ -6,10 +6,10 @@ The combined version of the form components you need when developing web applica
 
 ## Components (still developing)
 
-- [x] Button
-- [x] Input
-- [x] Steps
-- [x] Checkbox
+- [x] [Button](#button)
+- [x] [Input](#input)
+- [x] [Steps](#steps)
+- [x] [Checkbox](#steps)
 - [ ] Radio button
 - [ ] Image and video picker
 - [ ] Autocomplete dropdown list
