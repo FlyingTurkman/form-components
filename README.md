@@ -1,4 +1,4 @@
-# FT-FORM-COOMPONENTS
+# FT-FORM-COMPONENTS
 
 ## Easy to use form components
 

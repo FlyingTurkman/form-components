@@ -1,6 +1,6 @@
 {
   "name": "ft-form-components",
-  "version": "0.0.29",
+  "version": "0.0.32",
   "description": "Easy to use form components",
   "main": "./index.js",
   "scripts": {
