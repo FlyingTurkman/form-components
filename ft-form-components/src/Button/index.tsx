@@ -1,34 +1,39 @@
 import React, { HTMLAttributes } from "react";
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-import Loading from "./Loading";
-
-
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     loading?: boolean,
     loadingComponent?: any
 }
 
-interface LoadingProps extends HTMLAttributes<HTMLButtonElement> {
-    loading?: boolean
-}
 
 
 
 
 
-
-
-
-const Button: React.FC<ButtonProps> & {Loading: React.FC<LoadingProps>} = ({loading,loadingComponent , onClick, children, ...props}) => {
+const Button: React.FC<ButtonProps> = ({loading,loadingComponent , onClick, children, ...props}) => {
     return(
         <button {...props} onClick={() => clickHandle()}>
             {loading && loadingComponent && (
                 loadingComponent
             )}
             {loading && !loadingComponent && (
-                <div>
-                    Loading
+                <div className="loading">
+                    <style>{`
+                        .loading {
+                            animation: rotation 2s infinite linear;
+                        }
+                        
+                        @keyframes rotation {
+                            from {
+                                transform: rotate(0deg);
+                            }
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    `}</style>
+                    <AiOutlineLoading3Quarters/>
                 </div>
             )}
             {!loading && (
@@ -42,8 +47,6 @@ const Button: React.FC<ButtonProps> & {Loading: React.FC<LoadingProps>} = ({load
     }
 }
 
-
-Button.Loading = Loading;
 
 
 export default Button
