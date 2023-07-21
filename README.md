@@ -6,16 +6,16 @@ The combined version of the form components you need when developing web applica
 
 ## Components (still developing)
 
-- Button
-- Input
-- Steps
-- Checkbox
-- Radio button (still developing)
-- Image and video picker (still developing)
-- Autocomplete dropdown list (still developing)
-- Basic dropdown list (still developing)
-- Masked inputs for phone number, credit card number etc. (still developing)
-- Credit card view (still developing)
+- [x] Button
+- [x] Input
+- [x] Steps
+- [x] Checkbox
+- [ ] Radio button
+- [ ] Image and video picker
+- [ ] Autocomplete dropdown list
+- [ ] Basic dropdown list
+- [ ] Masked inputs for phone number, credit card number etc.
+- [ ] Credit card view
 
 ## Installation
 You can use this npm command to install the necessary dependencies and use the form components:
