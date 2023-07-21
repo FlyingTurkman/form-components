@@ -1,21 +1,19 @@
 'use client'
 
-import CheckBox from "../ft-form-components/src/CheckBox"
 import { useState } from "react"
-import Button from "../ft-form-components/src/Button"
-import Steps from "@/ft-form-components/src/Steps"
+import Button from "ft-form-components/Button"
+import CheckBox from "ft-form-components/CheckBox"
+import Steps from 'ft-form-components/Steps'
 
 export default function Page() {
   const [checked, setChecked] = useState<boolean>(false)
   return(
-    <div className="bg-red-300">
-      <CheckBox checked={checked} checkChanged={setChecked} className="cursor-pointer flex flex-row items-center text-2xl">
-        Erkek
+    <div className="bg-gray-100">
+      <Button loading>Test</Button>
+      <CheckBox checked={checked} checkChanged={setChecked}>
+        Deneme
       </CheckBox>
-      <Button loading>
-        test
-      </Button>
-      <Steps maxSteps={5} currentStep={4} className="w-full"/>
+      <Steps currentStep={2} maxSteps={4}/>
     </div>
   )
 }
