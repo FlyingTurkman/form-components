@@ -6,9 +6,9 @@ The combined version of the form components you need when developing web applica
 
 ## Components (still developing)
 
-[x] #Button
-[x] #Input
-[x] #Steps
+[x] Button
+[x] Input
+[x] Steps
 [x] #Checkbox
 [ ] Radio button
 [ ] Image and video picker
