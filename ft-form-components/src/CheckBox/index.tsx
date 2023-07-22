@@ -17,14 +17,14 @@ interface CheckBoxProps extends HTMLAttributes<HTMLButtonElement> {
 export default function CheckBox({checked, checkChanged, checkedComponent, uncheckedComponent, children, onClick, ...props}: CheckBoxProps) {
     if (checked && checkedComponent) {
         return(
-            <button>
+            <button {...props} onClick={(e: any) => clickHandle(e)}>
                 {checkedComponent}
                 {children}
             </button>
         )
     } else if (!checked && uncheckedComponent)  {
         return(
-            <button>
+            <button {...props} onClick={(e: any) => clickHandle(e)}>
                 {uncheckedComponent}
                 {children}
             </button>

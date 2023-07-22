@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -14,8 +23,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const io5_1 = require("react-icons/io5");
 function CheckBox(_a) {
-    var { checked, checkChanged, checkedComponent, uncheckedComponent, children } = _a, props = __rest(_a, ["checked", "checkChanged", "checkedComponent", "uncheckedComponent", "children"]);
-    return ((0, jsx_runtime_1.jsxs)("div", Object.assign({}, props, { onClick: () => checkChanged(!checked), children: [checked && checkedComponent && (checkedComponent), !checked && uncheckedComponent && (uncheckedComponent), checked && !checkedComponent && ((0, jsx_runtime_1.jsx)("span", { children: (0, jsx_runtime_1.jsx)(io5_1.IoCheckmark, {}) })), !checked && !uncheckedComponent && ((0, jsx_runtime_1.jsx)("span", { children: (0, jsx_runtime_1.jsx)(io5_1.IoClose, {}) })), children] })));
+    var { checked, checkChanged, checkedComponent, uncheckedComponent, children, onClick } = _a, props = __rest(_a, ["checked", "checkChanged", "checkedComponent", "uncheckedComponent", "children", "onClick"]);
+    if (checked && checkedComponent) {
+        return ((0, jsx_runtime_1.jsxs)("button", Object.assign({}, props, { onClick: (e) => clickHandle(e), children: [checkedComponent, children] })));
+    }
+    else if (!checked && uncheckedComponent) {
+        return ((0, jsx_runtime_1.jsxs)("button", Object.assign({}, props, { onClick: (e) => clickHandle(e), children: [uncheckedComponent, children] })));
+    }
+    else if (checked && !checkedComponent) {
+        return ((0, jsx_runtime_1.jsxs)("button", Object.assign({}, props, { onClick: (e) => clickHandle(e), style: { display: 'flex', flexDirection: 'row', alignItems: 'center' }, children: [(0, jsx_runtime_1.jsx)(io5_1.IoCheckmark, {}), children] })));
+    }
+    else {
+        return ((0, jsx_runtime_1.jsxs)("button", Object.assign({}, props, { onClick: (e) => clickHandle(e), style: { display: 'flex', flexDirection: 'row', alignItems: 'center' }, children: [(0, jsx_runtime_1.jsx)(io5_1.IoClose, {}), children] })));
+    }
+    function clickHandle(e) {
+        return __awaiter(this, void 0, void 0, function* () {
+            checkChanged(!checked);
+            if (onClick) {
+                onClick(e);
+            }
+        });
+    }
 }
 exports.default = CheckBox;
 //# sourceMappingURL=index.js.map
