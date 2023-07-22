@@ -1,15 +1,14 @@
 'use client'
 
 import { useState } from "react"
-import CheckBox from "../ft-form-components/src/CheckBox"
-import Button from "../ft-form-components/src/Button"
+import CheckBox from "ft-form-components/CheckBox"
 
 export default function Page() {
-  const [checked, setChecked] = useState<boolean>(false)
+  const [checked, setChecked] = useState<boolean>(true)
   return(
     <div>
-      <CheckBox checked={checked} checkChanged={setChecked} className="bg-red-300">
-        I am Coder
+      <CheckBox checked={checked} checkChanged={setChecked}>
+        I am coder.
       </CheckBox>
     </div>
   )

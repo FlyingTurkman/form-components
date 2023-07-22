@@ -15,24 +15,36 @@ interface CheckBoxProps extends HTMLAttributes<HTMLButtonElement> {
 
 
 export default function CheckBox({checked, checkChanged, checkedComponent, uncheckedComponent, children, onClick, ...props}: CheckBoxProps) {
-    return(
-        <button {...props} onClick={(e: any) => clickHandle(e)}>
-            {checked && checkedComponent && (
-                checkedComponent
-            )}
-            {!checked && uncheckedComponent && (
-                uncheckedComponent
-            )}
-            {checked && !checkedComponent && (
-                <IoCheckmark className="inline"/>
-            )}
-            {!checked && !uncheckedComponent && (
-                <IoClose className="inline"/>
-            )}
-            {children}
-        </button>
-    )
-
+    if (checked && checkedComponent) {
+        return(
+            <button>
+                {checkedComponent}
+                {children}
+            </button>
+        )
+    } else if (!checked && uncheckedComponent)  {
+        return(
+            <button>
+                {uncheckedComponent}
+                {children}
+            </button>
+        )
+    } else if (checked && !checkedComponent) {
+        return(
+            <button {...props} onClick={(e: any) => clickHandle(e)} style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <IoCheckmark/>
+                {children}
+            </button>
+        )
+    } else {
+        return(
+            <button {...props} onClick={(e: any) => clickHandle(e)} style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                <IoClose/>
+                {children}
+            </button>
+        )
+    }
+    
     async function clickHandle(e: any) {
         checkChanged(!checked)
         if (onClick) {

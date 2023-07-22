@@ -9,7 +9,7 @@ The combined version of the form components you need when developing web applica
 - [x] [Button](#button)
 - [x] [Input](#input)
 - [x] [Steps](#steps)
-- [x] [Checkbox](#steps)
+- [x] [Checkbox](#checkbox)
 - [ ] Radio button
 - [ ] Image and video picker
 - [ ] Autocomplete dropdown list
@@ -217,3 +217,71 @@ export default function Page() {
   )
 }
 ```
+
+### Steps
+
+If you have a form that consists of multiple steps, you can use the Steps component to show your users which step they are currently on. This way, users can easily track their progress throughout the form.
+
+- Props
+  - maxSteps: required, number type. It shows the total number of steps.
+  - currentSteps: required, number type. It show current step.
+  - completedStepColor: not required, color type, default value: #16a34a. It indicates the color representation of completed steps.
+  - currentStepColor: not required, color type, default value: #ca8a04. It indicates the color representation of current step.
+  - uncompletedStepColor: not required, color type, default value: #dc2626. It indicates the color representation of uncompleted steps.
+
+```
+import Steps from 'ft-form-components/Steps'
+
+export default function Page() {
+  return(
+    <div>
+      <Steps maxSteps={5} currentStep={3}/>
+    </div>
+  )
+}
+```
+
+### CheckBox
+
+It is a simple checkbox structure that can be easily customized. Compared to a regular checkbox input, it is much easier to design.
+
+- Props
+  - checked: required, boolean type.
+  - checkChanged: required, Dispatch<boolean> type.
+  - checkedComponent: not required, any type. It allows you to personalize the design of what will be shown instead of the checkmark when it is checked. This can be a component, a string, or any other custom design.
+  - uncheckedComponent: not required, any type. It allows you to personalize the design of what will be shown instead of the checkmark when it is unchecked. This can be a component, a string, or any other custom design.
+
+
+```
+import { useState } from "react"
+import CheckBox from "ft-form-components/CheckBox"
+
+export default function Page() {
+  const [checked, setChecked] = useState<boolean>(true)
+  return(
+    <div>
+      <CheckBox checked={checked} checkChanged={setChecked}>
+        I am coder.
+      </CheckBox>
+    </div>
+  )
+}
+```
+
+You can also add an onClick event to the checkbox component. With this event, when the checkbox is clicked, both the checked state changes and the specified event is triggered.
+
+```
+import { useState } from "react"
+import CheckBox from "ft-form-components/CheckBox"
+
+export default function Page() {
+  const [checked, setChecked] = useState<boolean>(true)
+  return(
+    <div>
+      <CheckBox checked={checked} checkChanged={setChecked} onClick={() => alert('Sure ?')}>
+        I am coder.
+      </CheckBox>
+    </div>
+  )
+}
+
