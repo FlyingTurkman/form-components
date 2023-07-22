@@ -15,7 +15,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const io5_1 = require("react-icons/io5");
 function CheckBox(_a) {
     var { checked, checkChanged, checkedComponent, uncheckedComponent, children } = _a, props = __rest(_a, ["checked", "checkChanged", "checkedComponent", "uncheckedComponent", "children"]);
-    return ((0, jsx_runtime_1.jsxs)("div", Object.assign({}, props, { onClick: () => checkChanged(!checked), children: [checked && checkedComponent && (checkedComponent), !checked && uncheckedComponent && (uncheckedComponent), checked && !checkedComponent && ((0, jsx_runtime_1.jsx)(io5_1.IoCheckmark, {})), !checked && !uncheckedComponent && ((0, jsx_runtime_1.jsx)(io5_1.IoClose, {})), children] })));
+    return ((0, jsx_runtime_1.jsxs)("div", Object.assign({}, props, { onClick: () => checkChanged(!checked), children: [checked && checkedComponent && (checkedComponent), !checked && uncheckedComponent && (uncheckedComponent), checked && !checkedComponent && ((0, jsx_runtime_1.jsx)("span", { children: (0, jsx_runtime_1.jsx)(io5_1.IoCheckmark, {}) })), !checked && !uncheckedComponent && ((0, jsx_runtime_1.jsx)("span", { children: (0, jsx_runtime_1.jsx)(io5_1.IoClose, {}) })), children] })));
 }
 exports.default = CheckBox;
 //# sourceMappingURL=index.js.map

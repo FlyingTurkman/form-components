@@ -14,7 +14,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 function Warn(_a) {
     var { valid, children } = _a, props = __rest(_a, ["valid", "children"]);
-    return ((0, jsx_runtime_1.jsx)("label", Object.assign({}, props, { children: children })));
+    if (!valid) {
+        return ((0, jsx_runtime_1.jsx)("label", Object.assign({}, props, { children: children })));
+    }
+    else {
+        return ((0, jsx_runtime_1.jsx)("label", {}));
+    }
 }
 exports.default = Warn;
 //# sourceMappingURL=Warn.js.map

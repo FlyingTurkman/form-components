@@ -24,10 +24,14 @@ export default function CheckBox({checked, checkChanged, checkedComponent, unche
                 uncheckedComponent
             )}
             {checked && !checkedComponent && (
-                <IoCheckmark/>
+                <span>
+                    <IoCheckmark/>
+                </span>
             )}
             {!checked && !uncheckedComponent && (
-                <IoClose/>
+                <span>
+                    <IoClose/>
+                </span>
             )}
             {children}
         </div>
