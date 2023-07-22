@@ -29,6 +29,8 @@ You can find the usage guide of the components that you need when developing web
 
 ### Button
 
+![Example Button Component](https://ft-form-components.vercel.app/button/1.png)
+
 The Button component was specifically developed to ensure the correct functioning of async functions. It addresses an issue that even experienced software developers might overlook. During the execution of async functions, users can click on buttons repeatedly until the functions complete. This behavior can lead to unnecessary multiple fetch operations, especially when users have to wait for an extended period. Using the Button component makes it very easy to prevent this behavior.
 
 Exactly! The "loading" prop in the Button component is designed to handle this situation. By setting the "loading" prop to true, you can prevent multiple clicks on the Button until the async function completes. This way, even if users click the Button multiple times, the action will only be triggered once, avoiding redundant fetch operations or other async actions.
@@ -114,6 +116,8 @@ export default function Page() {
 ```
 
 ### Input
+
+![Example Input Component](https://ft-form-components.vercel.app/input/1.png)
 
 Modern form elements can sometimes be complex in terms of design, and one such element is inputs. Inputs can have different designs in creative layouts. Therefore, the Input component comes with four different children elements.
 
@@ -220,6 +224,9 @@ export default function Page() {
 
 ### Steps
 
+![Example Step Component](https://ft-form-components.vercel.app/steps/1.png)
+![Example Step Component](https://ft-form-components.vercel.app/steps/2.png)
+
 If you have a form that consists of multiple steps, you can use the Steps component to show your users which step they are currently on. This way, users can easily track their progress throughout the form.
 
 - Props
@@ -242,6 +249,8 @@ export default function Page() {
 ```
 
 ### CheckBox
+
+![Example CheckBox Component](https://ft-form-components.vercel.app/checkbox/1.png)
 
 It is a simple checkbox structure that can be easily customized. Compared to a regular checkbox input, it is much easier to design.
 

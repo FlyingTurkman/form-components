@@ -17,7 +17,7 @@ export default function Page() {
       {/* <ButtonExample/> */}
       {/* <InputExample/> */}
       {/* <CheckBoxExample/> */}
-      <StepsExample/>
+      {/* <StepsExample/> */}
     </div>
   )
 
