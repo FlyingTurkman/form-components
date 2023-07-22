@@ -11,9 +11,9 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 
 
-const Button: React.FC<ButtonProps> = ({loading,loadingComponent , onClick, children, ...props}) => {
+const Button: React.FC<ButtonProps> = ({loading, loadingComponent , onClick, children, ...props}) => {
     return(
-        <button {...props} onClick={() => clickHandle()}>
+        <button {...props} onClick={loading? () => { return }: onClick}>
             {loading && loadingComponent && (
                 loadingComponent
             )}
@@ -41,10 +41,6 @@ const Button: React.FC<ButtonProps> = ({loading,loadingComponent , onClick, chil
             )}
         </button>
     )
-
-    async function clickHandle() {
-        if (loading) return
-    }
 }
 
 

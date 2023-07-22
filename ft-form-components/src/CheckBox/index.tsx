@@ -3,7 +3,7 @@ import { IoCheckmark, IoClose } from 'react-icons/io5'
 
 
 
-interface CheckBoxProps extends HTMLAttributes<HTMLDivElement> {
+interface CheckBoxProps extends HTMLAttributes<HTMLButtonElement> {
     checked: boolean;
     checkChanged: Dispatch<boolean>;
     checkedComponent?: any;
@@ -14,9 +14,9 @@ interface CheckBoxProps extends HTMLAttributes<HTMLDivElement> {
 
 
 
-export default function CheckBox({checked, checkChanged, checkedComponent, uncheckedComponent,children, ...props}: CheckBoxProps) {
+export default function CheckBox({checked, checkChanged, checkedComponent, uncheckedComponent, children, onClick, ...props}: CheckBoxProps) {
     return(
-        <div {...props} onClick={() => checkChanged(!checked)}>
+        <button {...props} onClick={(e: any) => clickHandle(e)}>
             {checked && checkedComponent && (
                 checkedComponent
             )}
@@ -24,16 +24,19 @@ export default function CheckBox({checked, checkChanged, checkedComponent, unche
                 uncheckedComponent
             )}
             {checked && !checkedComponent && (
-                <span>
-                    <IoCheckmark/>
-                </span>
+                <IoCheckmark className="inline"/>
             )}
             {!checked && !uncheckedComponent && (
-                <span>
-                    <IoClose/>
-                </span>
+                <IoClose className="inline"/>
             )}
             {children}
-        </div>
+        </button>
     )
+
+    async function clickHandle(e: any) {
+        checkChanged(!checked)
+        if (onClick) {
+            onClick(e)
+        }
+    }
 }

@@ -197,9 +197,9 @@ export default function Page() {
   const [usernameValid, setUsernameValid] = useState<boolean>(false)
   useEffect(() => {
     if (username.includes(' ') || username.includes('/')) {
-      setUsernameValid(true)
-    } else {
       setUsernameValid(false)
+    } else {
+      setUsernameValid(true)
     }
   }, [username])
   return(
