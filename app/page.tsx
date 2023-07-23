@@ -8,29 +8,33 @@ import InputExample from "@/components/InputExample"
 import CheckBoxExample from "@/components/CheckBoxExample"
 import StepsExample from "@/components/StepsExample"
 import RadioButton from "@/ft-form-components/src/RadioButton"
+import RadioButtonExample from "@/components/RadioButtonExample"
 
 
+type jobType = {
+  id: number,
+  job: string
+}
+
+
+const jobs: jobType[] = [
+  { id: 1, job: 'Developer'},
+  { id: 2, job: 'Dietitian'},
+  { id: 3, job: 'Architect'},
+  { id: 4, job: 'Artist'}
+]
 
 export default function Page() {
   const [loading, setLoading] = useState<boolean>(false)
-  const [values, setValues] = useState<string[]>(['a', 'b', 'c'])
-  const [selectedValue, setSelectedValue] = useState<any>('a')
+  const [values, setValues] = useState<jobType[]>(jobs)
+  const [selectedValue, setSelectedValue] = useState<jobType>(jobs[-1])
   return(
     <div className="flex h-screen items-center justify-center">
       {/* <ButtonExample/> */}
       {/* <InputExample/> */}
       {/* <CheckBoxExample/> */}
       {/* <StepsExample/> */}
-      <RadioButton className="flex flex-col space-y-2">
-        {selectedValue} Seçildi
-        <RadioButton.Group className="flex flex-col" values={values} selectedValue={selectedValue} setSelectedValue={setSelectedValue}>
-          {values.map((value) => {
-            return(
-              <RadioButton.Button key={value} value={value}>Option {value}</RadioButton.Button>
-            )
-          })}
-        </RadioButton.Group>
-      </RadioButton>
+      <RadioButtonExample/>
     </div>
   )
 

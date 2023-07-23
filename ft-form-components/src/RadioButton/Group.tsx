@@ -10,15 +10,17 @@ export interface GroupProps extends HTMLAttributes<HTMLDivElement> {
     values: any[] | any;
     selectedValue: any;
     setSelectedValue: Dispatch<any>;
+    selectedComponent?: any,
+    unselectedComponent?: any;
 }
 
-export const GroupContext = createContext<{selectedValue: any, setSelectedValue: Dispatch<any> | null}>({selectedValue: null, setSelectedValue: null})
+export const GroupContext = createContext<{selectedValue: any, setSelectedValue: Dispatch<any> | null, selectedComponent: any, unselectedComponent: any}>({selectedValue: null, setSelectedValue: null, selectedComponent: null, unselectedComponent: null})
 
 
-const Group: React.FC<GroupProps> = ({children, values, selectedValue, setSelectedValue, ...props}) => {
+const Group: React.FC<GroupProps> = ({children, values, selectedValue, setSelectedValue, selectedComponent, unselectedComponent, ...props}) => {
 
     return(
-        <GroupContext.Provider value={{selectedValue, setSelectedValue}} {...props}>
+        <GroupContext.Provider value={{selectedValue, setSelectedValue, selectedComponent, unselectedComponent}} {...props}>
             <div {...props}>
                 {children}
             </div>
