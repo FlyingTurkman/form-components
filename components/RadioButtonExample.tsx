@@ -17,8 +17,8 @@ const jobs: jobType[] = [
 ]
 
 export default function RadioButtonExample() {
-    const [values, setValues] = useState<jobType[]>(jobs)
-    const [selectedValue, setSelectedValue] = useState<jobType>(jobs[0])
+    const [values1, setValues1] = useState<jobType[]>(jobs)
+    const [selectedValue1, setSelectedValue1] = useState<jobType>(jobs[0])
     const [values2, setValues2] = useState<jobType[]>(jobs)
     const [selectedValue2, setSelectedValue2] = useState<jobType>(jobs[1])
     return(
@@ -28,8 +28,11 @@ export default function RadioButtonExample() {
                 <hr className="w-full"/>
                 <label>What is your job?</label>
                 <hr className="w-full"/>
-                <RadioButton.Group className="flex flex-col" values={values} selectedValue={selectedValue} setSelectedValue={setSelectedValue}>
-                    {values.map((value) => {
+                <RadioButton.Group
+                className="flex flex-col"
+                values={values1} selectedValue={selectedValue1}
+                setSelectedValue={setSelectedValue1}>
+                    {values1.map((value) => {
                     return(
                         <RadioButton.Button key={value.id} value={value}>
                             {value.job}
@@ -38,7 +41,7 @@ export default function RadioButtonExample() {
                     })}
                 </RadioButton.Group>
                 <hr/>
-                <label>You are a {selectedValue.job}</label>
+                <label>You are a {selectedValue1.job}</label>
             </RadioButton>
             <RadioButton className="flex flex-col space-y-2 p-2 border-gray-600 border">
                 <label className="text-lg font-semibold">Example with customised icons</label>
